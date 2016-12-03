@@ -5,7 +5,7 @@ mkdir -p /AppDir/usr
 
 # Install build deps
 apt-get build-dep -y gnumeric goffice libgtk-3-dev perl
-apt-get install -y wget xzip curl tar gtk-doc-tools
+apt-get install -y wget xzip curl tar gtk-doc-tools itstool
 apt-get remove -y libgsf*
 apt-get remove -y goffice*
 
