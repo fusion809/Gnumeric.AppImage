@@ -9,6 +9,10 @@ apt-get install -y wget xzip curl tar gtk-doc-tools itstool
 apt-get remove -y libgsf*
 apt-get remove -y goffice*
 
+printf "Running AskUbuntu commands\n"
+pkg-config --modversion gtk+-3.0
+pkg-config --cflags gtk+-3.0
+
 function version {
   APP="$1"
   UPPERAPP=${APP^^}
