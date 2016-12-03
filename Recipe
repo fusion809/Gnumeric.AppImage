@@ -24,8 +24,15 @@ wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/libgsf/${GSF_VERSION%.*}/lib
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/goffice/${GOFFICE_VERSION%.*}/goffice-${GOFFICE_VERSION}.tar.xz | tar xJ
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gnumeric/${GNUMERIC_VERSION%.*}/gnumeric-${GNUMERIC_VERSION}.tar.xz | tar xJ
 wget -cqO- https://github.com/GNOME/gtk/archive/${GTK_VERSION}.tar.gz | tar xz
+wget -cqO- https://ftp.gnu.org/pub/gnu/gettext/gettext-latest.tar.xz | tar xJ
 
-cd gtk*
+cd gettext*
+./autogen.sh
+./configure --prefix=/usr
+make
+make install
+make install DESTDIR=/AppDir
+cd ../gtk*
 ./autogen.sh
 ./configure --prefix=/usr
 make
