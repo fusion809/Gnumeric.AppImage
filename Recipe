@@ -27,7 +27,7 @@ make
 make install
 make install DESTDIR=/AppDir
 cd ../goffice*
-./configure --prefix=/usr
+./configure --prefix=/usr --with-x-toolkit=gtk2
 make
 make install
 make install DESTDIR=/AppDir
