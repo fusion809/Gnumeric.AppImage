@@ -11,6 +11,7 @@ apt-get remove -y goffice*
 
 perlbrew init
 perlbrew install perl-5.24.0
+source ~/perl5/perlbrew/etc/bashrc
 
 function version {
   APP="$1"
