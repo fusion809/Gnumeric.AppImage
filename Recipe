@@ -1,5 +1,9 @@
 #!/bin/bash
-mkdir /AppDir
+
+# Create build dest directory
+mkdir -p /AppDir/usr
+
+# Install build deps
 apt-get build-dep -y gnumeric
 apt-get install -y wget xzip curl tar
 
