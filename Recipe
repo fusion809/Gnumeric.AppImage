@@ -22,19 +22,16 @@ wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/goffice/${GOFFICE_VERSION%.*
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gnumeric/${GNUMERIC_VERSION%.*}/gnumeric-${GNUMERIC_VERSION}.tar.xz | tar xJ
 
 cd libgsf*
-./autogen.sh
 ./configure --prefix=/usr
 make
 make install
 make install DESTDIR=/AppDir
 cd ../goffice*
-./autogen.sh
 ./configure --prefix=/usr
 make
 make install
 make install DESTDIR=/AppDir
 cd ../gnumeric*
-./autogen.sh
 ./configure --prefix=/usr
 make
 make install
