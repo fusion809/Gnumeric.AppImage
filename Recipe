@@ -4,7 +4,7 @@
 mkdir -p /AppDir/usr
 
 # Install build deps
-apt-get build-dep -y gnumeric
+apt-get build-dep -y gnumeric goffice libgsf*
 apt-get install -y wget xzip curl tar
 apt-get remove -y libgsf*
 apt-get remove -y goffice*
