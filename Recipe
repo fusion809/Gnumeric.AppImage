@@ -18,12 +18,14 @@ function version {
 GOFFICE_VERSION=$(version goffice)
 GSF_VERSION=$(version libgsf)
 GNUMERIC_VERSION=$(version gnumeric)
+GTK_DOC_VERSION=$(version gtk-doc)
 GTK_VERSION=3.22.4
 
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/libgsf/${GSF_VERSION%.*}/libgsf-${GSF_VERSION}.tar.xz | tar xJ
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/goffice/${GOFFICE_VERSION%.*}/goffice-${GOFFICE_VERSION}.tar.xz | tar xJ
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gnumeric/${GNUMERIC_VERSION%.*}/gnumeric-${GNUMERIC_VERSION}.tar.xz | tar xJ
 wget -cqO- https://github.com/GNOME/gtk/archive/${GTK_VERSION}.tar.gz | tar xz
+wget -cqO- https://github.com/GNOME/gtk-doc/archive/${GTK_DOC_VERSION}.tar.gz | tar xz
 wget -cqO- https://ftp.gnu.org/pub/gnu/gettext/gettext-latest.tar.xz | tar xJ
 
 cd gettext*
@@ -31,7 +33,13 @@ cd gettext*
 make
 make install
 make install DESTDIR=/AppDir
-cd ../gtk*
+cd ../gtk-doc*
+./autogen.sh
+./configure --prefix=/usr
+make
+make install
+make install DESTDIR=/AppDir
+cd ../gtk-[0-9]*
 ./autogen.sh
 ./configure --prefix=/usr --disable-gtk-doc
 make
