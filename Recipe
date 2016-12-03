@@ -34,7 +34,6 @@ make
 make install
 make install DESTDIR=/AppDir
 cd ../gtk-doc*
-./autogen.sh
 ./configure --prefix=/usr
 make
 make install
