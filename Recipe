@@ -9,10 +9,6 @@ apt-get install -y wget xzip curl tar gtk-doc-tools perlbrew
 apt-get remove -y libgsf*
 apt-get remove -y goffice*
 
-perlbrew init
-perlbrew install perl-5.24.0
-source ~/perl5/perlbrew/etc/bashrc
-
 function version {
   APP="$1"
   UPPERAPP=${APP^^}
@@ -27,6 +23,7 @@ GOFFICE_VERSION=$(version goffice)
 GSF_VERSION=$(version libgsf)
 GNUMERIC_VERSION=$(version gnumeric)
 GTK_DOC_VERSION=$(version gtk-doc)
+PERL_VERSION=$(wget -q http://www.cpan.org/src/5.0/ -O - | grep "\.tar\.xz<" | cut -d '"' -f 8 | sed "s|\.tar\.xz||g" | sed "s|perl-||g" | tail -n 1)
 GTK_VERSION=3.22.4
 
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/libgsf/${GSF_VERSION%.*}/libgsf-${GSF_VERSION}.tar.xz | tar xJ
@@ -35,8 +32,14 @@ wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gnumeric/${GNUMERIC_VERSION%
 wget -cqO- https://github.com/GNOME/gtk/archive/${GTK_VERSION}.tar.gz | tar xz
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gtk-doc/${GTK_DOC_VERSION}/gtk-doc-${GTK_DOC_VERSION}.tar.xz | tar xJ
 wget -cqO- https://ftp.gnu.org/pub/gnu/gettext/gettext-latest.tar.xz | tar xJ
+wget -cqO- http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.xz | tar xJ
 
 cd gettext*
+./configure --prefix=/usr
+make
+make install
+make install DESTDIR=/AppDir
+cd ../perl*
 ./configure --prefix=/usr
 make
 make install
