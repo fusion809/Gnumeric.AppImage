@@ -6,8 +6,8 @@ mkdir -p /AppDir/usr
 # Install build deps
 apt-get build-dep -y gnumeric
 apt-get install -y wget xzip curl tar
-apt-get remove -y libgsf
-apt-get remove -y goffice
+apt-get remove -y libgsf*
+apt-get remove -y goffice*
 
 function version {
   APP="$1"
