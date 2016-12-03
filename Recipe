@@ -23,7 +23,7 @@ GOFFICE_VERSION=$(version goffice)
 GSF_VERSION=$(version libgsf)
 GNUMERIC_VERSION=$(version gnumeric)
 GTK_DOC_VERSION=$(version gtk-doc)
-PERL_VERSION=$(wget -q http://www.cpan.org/src/5.0/ -O - | grep "\.tar\.xz<" | cut -d '"' -f 8 | sed "s|\.tar\.xz||g" | sed "s|perl-||g" | tail -n 1)
+PERL_VERSION=$(wget -q http://www.cpan.org/src/5.0/ -O - | grep "\.tar\.xz<" | cut -d '"' -f 8 | sed "s|\.tar\.xz||g" | sed "s|perl-||g" | grep "5.24" | tail -n 1)
 GTK_VERSION=3.22.4
 
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/libgsf/${GSF_VERSION%.*}/libgsf-${GSF_VERSION}.tar.xz | tar xJ
