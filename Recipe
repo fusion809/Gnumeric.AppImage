@@ -40,7 +40,7 @@ make
 make install
 make install DESTDIR=/AppDir
 cd ../perl*
-./configure --prefix=/usr
+./Configure -des -Dprefix=/usr
 make
 make install
 make install DESTDIR=/AppDir
