@@ -27,6 +27,7 @@ wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gnumeric/${GNUMERIC_VERSION%
 wget -cqO- https://github.com/GNOME/gtk/archive/${GTK_VERSION}.tar.gz | tar xz
 
 cd gtk*
+./autogen.sh
 ./configure --prefix=/usr
 make
 make install
