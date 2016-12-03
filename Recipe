@@ -32,7 +32,7 @@ wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gnumeric/${GNUMERIC_VERSION%
 wget -cqO- https://github.com/GNOME/gtk/archive/${GTK_VERSION}.tar.gz | tar xz
 wget -cqO- https://ftp.acc.umu.se/pub/gnome/sources/gtk-doc/${GTK_DOC_VERSION}/gtk-doc-${GTK_DOC_VERSION}.tar.xz | tar xJ
 wget -cqO- https://ftp.gnu.org/pub/gnu/gettext/gettext-latest.tar.xz | tar xJ
-wget -cqO- http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.xz | tar xJ
+wget -cqO- http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.gz | tar xz
 
 cd gettext*
 ./configure --prefix=/usr
