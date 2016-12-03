@@ -4,6 +4,10 @@
 mkdir -p /AppDir/usr
 
 # Install build deps
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:gnome3-team/gnome3
+add-apt-repository -y ppa:gnome3-team/gnome3-staging
+apt-get update && apt-get upgrade -y
 apt-get build-dep -y gnumeric goffice
 apt-get install -y wget xzip curl tar
 apt-get remove -y libgsf*
