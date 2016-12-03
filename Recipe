@@ -12,7 +12,11 @@ apt-get remove -y goffice*
 function version {
   APP="$1"
   UPPERAPP=${APP^^}
-  wget -q https://github.com/GNOME/${APP}/releases -O - | grep "\.tar\.gz" | cut -d '"' -f 2 | head -n 1 | cut -d '/' -f 5 | sed 's/\.[a-z.]*//g' | sed "s/$UPPERAPP\_//g" | sed 's/_/\./g' | sed 's|GTK\.DOC\.||g'
+  if [[ $APP == "gtk-doc" ]]; then
+    wget -q https://github.com/GNOME/${APP}/releases -O - | grep "\.tar\.gz" | cut -d '"' -f 2 | head -n 1 | cut -d '/' -f 5 | sed 's/\.[a-z.]*//g' | sed "s/$UPPERAPP\_//g" | sed 's/_/\./g' | sed 's|GTK\.DOC\.||g'
+  else
+    wget -q https://github.com/GNOME/${APP}/releases -O - | grep "\.tar\.gz" | cut -d '"' -f 2 | head -n 1 | cut -d '/' -f 5 | sed 's/\.[a-z.]*//g' | sed "s/$UPPERAPP\_//g" | sed 's/_/\./g'
+  fi
 }
 
 GOFFICE_VERSION=$(version goffice)
